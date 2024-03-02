@@ -1,9 +1,7 @@
-<h1 align="center">Hello, I'm Yohana Septamia</h1>
-- 🌱 I’m currently learning **C++ and Design**
-
-- 👯 I’m looking to collaborate on **any project**
-
-- ⚡ Fun fact **My birth name was Chintia**
+<h1>Hello, I'm Yohana Septamia</h1>
+- 🌱 I’m currently learning <b>C++ and Design</b>
+- 👯 I’m looking to collaborate on <b>any project</b>
+- ⚡ Fun fact <b>My birth name was Chintia</b>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
