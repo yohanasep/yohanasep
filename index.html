@@ -6,58 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: cursive;
+        }
+    </style>
 </head>
 <body>
-    <div class="h-[3700px] w-full flex flex-col">
+    <div class="h-full w-full flex flex-col">
 
-        <!-- #1 -->
-        <div class="h-1/4 bg-gray-100">
-            <div class="bg-gradient-to-b from-slate-400 to-gray-100 py-8">
-                navbar
+         <!-- #1 -->
+        <div class="h-fit lg:h-1/4 bg-gradient-to-r from-gray-100 to-slate-400" id="top">
+
+            <!-- navbar -->
+            <div class="py-4 px-[10%] text-lg bg-gradient-to-r from-sky-800 to-fushcia-800">
+                <div class="md:grid grid-cols-3">
+                    <div class="text-white font-bold">
+                        <a href="#top">Anggoer</a>
+                    </div>
+
+                    <div class="md:flex justify-between text-sky-800 text-white md:col-start-3">
+                        <a href="#jenis" class="hover:text-slate-800">Jenis</a>
+                        <a href="#manfaat" class="hover:text-slate-800">Manfaat</a>
+                        <a href="#kandungan" class="hover:text-slate-800">Kandungan</a>
+                    </div>
+                </div>
             </div>
+            <!-- end of navbar -->
 
-            <div class="md:flex h-full justify-center items-center md:px-[5%] px-[10%]">
-                <div class="md:w-1/2">Lorem Ipsum is simply dummy text of the printing and 
-                    typesetting industry. Lorem Ipsum has been the industry's standard 
-                    dummy text ever since the 1500s, when an unknown printer took a galley 
-                    of type and scrambled it to make a type specimen book. It has survived 
-                    not only five centuries, but also the leap into electronic typesetting, 
-                    remaining essentially unchanged.</div>
+            <div class="md:flex h-full items-center md:px-[5%] px-[10%]">
+                <div class="md:w-1/2 sm:mx-20 md:my-8 lg:my-0">
+                    <p class="font-bold text-3xl lg:text-4xl text-sky-800 mb-10 font-sans mt-10 md:mt-0">Vitis vinifera L</p>
+                    <p class="text-4xl lg:text-5xl mb-6">Buah lezat kaya <span class="font-bold sm:text-[70px] leading-tight">Manfaat</span></p>
+                    <p class="text-justify">
+                        Cemilan lezat yang bisa anda nikmati di rumah atau di perjalanan!
+                        Buah anggur dikenal memiliki kandungan antioksidan cukup tinggi dengan kandungan kalori dan lemak yang rendah. 
+                        Buah ini juga memiliki kandungan serat, karbohidrat, dan protein.
+                    </p> 
+                </div>
                 <div class="md:w-1/2 flex justify-center items-center pb-20">
-                    <img src="assets/Grape.png" alt="" class="w-[45%]">
+                    <img src="assets/grape.png" alt="" class="w-[80%] lg:mt-10">
                 </div>
             </div>
         </div>
         <!-- end of #1 -->
 
         <!-- #2 -->
-        <div class="h-1/4 bg-slate-300 px-[10%] flex flex-col justify-center items-center">
-            <div class="flex flex-col items-center mb-[7%]">
-                <p class="font-bold text-xl">Tipe Anggur</p>
-                <p class="text-lg">lorem Ipsum lorem Ipsumlorem Ipsumlorem Ipsumlorem Ipsum</p>
+        <div class="h-fit lg:h-[800px] bg-gradient-to-b from-gray-100 to-slate-300 px-[10%] pt-20" id="jenis">
+            <div class="flex flex-col items-center mb-[5%]">
+                <p class="font-bold text-3xl"><span class="text-sky-600">Jenis buah</span> <span class="text-sky-800">Anggur</span> </p>
+                <p class="text-lg mt-2 md:w-1/2 text-center">Varietas anggur yang berbeda memiliki jenis antosianin dan ketebalan kulit yang berbeda, yang kemudian memengaruhi warna kulit anggur</p>
             </div>
 
-            <div class="lg:flex justify-between">
-                <div class="w-fit flex flex-col items-center mx-4">
-                    <img src="assets/greengrape.jpg" class="rounded-full my-4 w-[30%] lg:w-[70%]" alt="">
-                    <p class="font-bold text-xl">Anggur Hijau</p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and 
-                        typesetting industry. Lorem Ipsum has been the industry's standard 
-                        dummy text ever since the 1500s.</p>
+            <div class="lg:flex justify-between bg-cover rounded-full h-[25%] lg:h-[300px] shadow-xl gap-10" style="background-image: url(assets/tableCloth.jpg);" id="tableCloth">
+                <div class="w-fit flex flex-col items-center mx-4 mt-2">
+                    <img src="assets/greengrape.jpg" class="rounded-full my-4 w-[30%] sm:w-[240px] drop-shadow-2xl" alt="">
+                    <p class="font-bold text-xl lg:my-5 lg:mt-16">Anggur Hijau</p>
+                    <p class="text-justify">Anggur hijau dikenal memiliki kandungan antioksidan yang tinggi. 
+                        Salah satu antioksidan yang terdapat pada anggur jenis ini adalah katekin.</p>
                 </div>
                 <div class="w-fit flex flex-col items-center mx-4">
-                    <img src="assets/redgrape.jpg" class="rounded-full my-4 w-[30%] lg:w-[70%]" alt="">
-                    <p class="font-bold text-xl">Anggur Merah</p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and 
-                        typesetting industry. Lorem Ipsum has been the industry's standard 
-                        dummy text ever since the 1500s.</p>
+                    <img src="assets/redgrape.jpg" class="rounded-full my-4 w-[30%] sm:w-[240px] drop-shadow-2xl" alt="">
+                    <p class="font-bold text-xl lg:my-5 lg:mt-16">Anggur Merah</p>
+                    <p class="text-justify">Anggur merah memiliki kandungan resveratrol yang cukup tinggi. 
+                        Anggur merah juga kaya akan kuersetin.</p>
                 </div>
                 <div class="w-fit flex flex-col items-center mx-4">
-                    <img src="assets/purplegrape.jpg" class="rounded-full my-4 w-[30%] lg:w-[70%]" alt="">
-                    <p class="font-bold text-xl">Anggur Ungu</p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and 
-                        typesetting industry. Lorem Ipsum has been the industry's standard 
-                        dummy text ever since the 1500s.</p>
+                    <img src="assets/purplegrape.jpg" class="rounded-full my-4 w-[30%] sm:w-[240px] drop-shadow-2xl" alt="">
+                    <p class="font-bold text-xl lg:my-5 lg:mt-16">Anggur Hitam</p>
+                    <p class="text-justify mb-8 lg:mb-0">Anggur hitam kaya akan resveratrol. Semakin gelap 
+                        warna buah anggur, semakin tinggi pula kandungan resveratrol di dalamnya.</p>
                 </div>
             </div>
             
@@ -65,35 +87,114 @@
         <!-- end of #2 -->
 
         <!-- #3 -->
-        <div class="h-1/4 bg-gray-100 p-[10%]">
-            <div class="md:flex justify-between items-center">
-                <div class="shadow-lg rounded-lg p-10">
-                    tes
+        <div class="h-fit bg-gray-100 p-[4%] px-[10%]" id="manfaat">
+            <div class="mb-3">
+                <p class="font-bold text-2xl">Manfaat buah Anggur</p>
+                <p class="text-lg mt-2">Selain buahnya yang segar, anggur mengandung berbagai nutrisi yang cukup penting untuk kesehatan tubuh.</p>
+            </div>
+
+            <div class="lg:grid lg:grid-cols-3 mt-7">
+                <img src="assets/bowlOfGrape.png" alt="" class="flex justify-center items-center w-full sm:w-[60%] lg:w-full">
+
+                <div class="md:flex flex-col gap-8 mt-5">
+                    <div class="break-words capitalize">
+                        <span class="font-bold text-sky-500"><b class="text-2xl">|</b> 01 </span> Menurunkan tekanan darah
+                    </div>
+                    <div class="break-words capitalize">
+                        <span class="font-bold text-sky-500"><b class="text-2xl">|</b> 02 </span> Mencegah peningkatan kolesterol
+                    </div>
+                    <div class="break-words capitalize">
+                        <span class="font-bold text-sky-600"><b class="text-2xl">|</b> 03 </span> Mengoptimalkan sistem imun tubuh
+                    </div>
+                    <div class="break-words capitalize">
+                        <span class="font-bold text-sky-700"><b class="text-2xl">|</b> 04 </span> Mencegah penyakit kanker
+                    </div>
                 </div>
-                <div class="shadow-lg rounded-lg p-10">
-                    tes
-                </div>
-                <div class="shadow-lg rounded-lg p-10">
-                    tes
-                </div>
-                <div class="shadow-lg rounded-lg p-10">
-                    tes
+
+                <div class="md:flex flex-col gap-8 my-5">
+                    <div class="break-words capitalize">
+                        <span class="font-bold text-sky-500"><b class="text-2xl">|</b> 05 </span> Mencegah penyakit kanker
+                    </div>
+                    <div class="break-words capitalize">
+                        <span class="font-bold text-sky-500"><b class="text-2xl">|</b> 06 </span> Mengoptimalkan kesehatan mata
+                    </div>
+                    <div class="break-words capitalize">
+                        <span class="font-bold text-sky-600"><b class="text-2xl">|</b> 07 </span> Meningkatkan kemampuan mengingat
+                    </div>
+                    <div class="break-words capitalize">
+                        <span class="font-bold text-sky-700"><b class="text-2xl">|</b> 08 </span> Meningkatkan kesehatan tulang
+                    </div>
                 </div>
             </div>
         </div>
         <!-- end of #3 -->
 
         <!-- #4 -->
-        <div class="h-1/4 bg-slate-300">
-            <img src="assets/womaneatgrapes.png" alt="">
+        <div class="h-fit bg-gradient-to-b from-slate-300 to-white" id="kandungan">
+            <div class="my-5 md:my-[50px] p-[4%] md:p-[0px] flex flex-col items-center">
+                <p class="font-bold text-3xl border-4 border-dashed border-sky-600 rounded-full p-3 px-6 shadow-md shadow-sky-600 text-center"><span class="text-sky-600" style="color: white; -webkit-text-stroke: 2px #0284C7;">Kandungan buah</span> <span class="text-sky-800">Anggur</span> </p>
+            </div>
+
+            <div class="px-[10%] h-full">
+                <img src="assets/womanEatsGrapes.png" class="absolute w-[80%] invisible lg:visible" alt="">
+                <div class="lg:grid grid-rows-2 grid-flow-col gap-40">
+                    <div class="lg:grid grid-cols-3 gap-8">
+                        <div class="lg:w-1/2">
+                            <p class="text-lg"><span class="font-bold text-xl">Anggur</span> termasuk salah 
+                                satu buah dengan kandungan tembaga dan vitamin K yang cukup tinggi. Keduanya 
+                                memiliki fungsi yang penting pada tubuh terkait produksi energi dan pembekuan 
+                                darah.</p>
+                        </div>
+                        <div class="mt-4 lg:m-6 col-start-3">
+                            <p class="text-lg text-justify">Selain rasanya yang segar, anggur mengandung berbagai 
+                                kandungan nutrisi yang baik untuk kesehatan </p>
+                            <p class="text-lg font-bold my-2 mt-4 lg:text-center">Per 151 gram</p>
+    
+                            <div class="grid grid-cols-2 gap-12">
+                                <div>
+                                    <p class="text-lg">Kalori: 104</p>
+                                    <p class="text-lg">Protein: 1 gram</p>
+                                    <p class="text-lg">Lemak: 0,2 gram</p>
+                                </div>
+                                <div>
+                                    <p class="text-lg">Serat: 1,4 gram</p>
+                                    <p class="text-lg">Karbohidrat: 27 gram</p>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                    </div>
+    
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="lg:w-1/2 mt-5">
+                            <p class="text-lg font-bold mb-2">Persentase per kebutuhan harian</p>
+                            <p class="text-lg">Tembaga: 21%</p>
+                            <p class="text-lg">Vitamin K: 18%</p>
+                            <p class="text-lg">Kalium: 6%</p>
+                            <p class="text-lg">Vitamin C: 5%</p>
+                        </div>
+                    
+                        <div class="lg:text-end lg:col-start-3">
+                            <p class="text-lg font-bold my-2 lg:mt-0 invisible lg:visible">Persentase per <br>kebutuhan harian</p>
+                            <p class="text-lg mt-5 sm:mt-0">Tiamin: 9%</p>
+                            <p class="text-lg">Riboflavin: 8%</p>
+                            <p class="text-lg">Mangan: 5%</p>
+                            <p class="text-lg">Vitamin E: 2%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- end of #4 -->
-
-        <!-- #5 -->
-        <div class="h-[15%] bg-gray-100">
-            puter
-        </div>
-        <!-- end of #5 -->
     </div>
+
+    <a href="#top" class="flex justify-end bottom-10 mx-10 sticky z-10" id="arrowUp">
+        <div class="bg-sky-700 hover:bg-sky-800 text-white rounded-full p-2 px-3.5 drop-shadow-lg w-fit h-fit cursor-pointer">
+            <i class="fa-solid fa-arrow-up" style="color: #ffffff;"></i>
+        </div>
+    </a>
+    
+    <script src="style.js"></script>
+    <script src="https://kit.fontawesome.com/8c8655eff1.js" crossorigin="anonymous"></script>
 </body>
 </html>
