@@ -1,14 +1,19 @@
-<h1>Hello, I'm Yohana Septamia</h1>
-- 🌱 I’m currently learning <b>C++ and Design</b>
+<hr>
 
-- 👯 I’m looking to collaborate on <b>any project</b>
+<h3>Yohana Septamia</h3>
 
-- ⚡ Fun fact <b>My birth name was Chintia</b>
+<i>College Student | Information Technology (IT)</i><br>
+<i>Universitas Sumatera Utara</i>
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://www.linkedin.com/in/yohana-septamia-11909128b" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="yohana septamia" height="30" width="40" /></a>
-</p>
+<hr>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> </p>
+<b>About my GitHub rep</b><br>
+I save final projects from our class here, whether its team or individual assignment.
+
+<b>Areas of interest</b>
+<li>Java Programming</li>
+<li>Web Design</li>
+
+<br>
+<b>Contact me</b><br>
+Feel free to connect with me on <a href="https://www.linkedin.com/in/yohana-septamia-11909128b">LinkedIn</a>
