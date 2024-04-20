@@ -1,140 +1,132 @@
-$(function ()
-{
-    const URLRegex = new RegExp('^(https?:\\/\\/)?' + // PROTOCOL
-        '((([a-zA-Z\\d]([a-zA-Z\\d-]{0,61}[a-zA-Z\\d])?)\\.)+[a-zA-Z]{2,}|' + // DOMAIN NAME
-        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IPv4 ADDRESS
-        '(\\:\\d+)?' + // PORT
-        '(\\/[-a-zA-Z\\d%@_.~+&:]*)*' + // PATH
-        '(\\?[;&a-zA-Z\\d%@_.,~+&:=-]*)?' + // QUERY STRING
-        '(\\#[-a-zA-Z\\d_]*)?$', 'i'); // FRAGMENT LOCATOR
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+~`|}{[\]\\:;'<>,.?/])(?=.*[a-zA-Z]).{8,}$/;
-    const IPRegex = new RegExp(`^\\d+(?:\\.\\d+){3}(?::\\d+)?$`)
-    const UUIDRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[8|9|aA|bB][0-9a-f]{3}-[0-9a-f]{12}$/i;
-    const duplicateRegex = /(\b\w+\b)(?=.*\b\1\b)/gi;
+$(function () {
+    const UrlYtRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const platKendaraanRegex = /^[A-Z]{1,3}\s?\d{1,4}\s?[A-Z]{0,3}$/;
+    const nomorAntrian1Regex = /^(?!0)\d{1}$/;
+    const nomorAntrian23Regex = /^\d{1}$/;
+    const warnaRegex = /^(?:[0-9a-fA-F]{3}){1,2}$/;
+    const ukBanMobilRegex = /^\d{3}\/\d{2}\s?[A-Z]\d{2}$/;
 
-    $('input').each(function ()
-    {
-        $(this).on('focus', function ()
-        {
-            $(this).closest($('article')).addClass('shadow-sm shadow-indigo-300')
-        })
-
-        $(this).on('blur', function ()
-        {
-            $(this).closest($('article')).removeClass('shadow-sm shadow-indigo-300')
-        })
-
-        $(this).on('input', function ()
-        {
-            const pElement = $(this).parent().siblings().filter('p');
-
-            if ($(this).attr('id') == 'url-regex')
-            {
-                if (URLRegex.test($(this).val()))
-                {
-                    $(this).removeClass('focus:ring-indigo-500 focus:ring-rose-400')
-                    $(this).addClass("focus:ring-emerald-400")
-
-                    pElement.html('Valid URL')
-                    pElement.removeClass('text-indigo-300 text-rose-300')
-                    pElement.addClass('text-emerald-300')
+    document.querySelectorAll('input').forEach(function(input) {
+        input.addEventListener('input', function() {
+            
+            //url yt
+            if($(this).attr('id') == 'urlyt-regex'){
+            const messageUrlYt = document.getElementById('messageUrlYt');
+            
+                if (UrlYtRegex.test($(this).val())) {
+                    messageUrlYt.innerHTML = 'Valdi';
+                    messageUrlYt.classList.remove('text-red-300');
+                    messageUrlYt.classList.add('text-cyan-200');
+                } else {
+                    messageUrlYt.innerHTML = 'Belum Valdi';
+                    messageUrlYt.classList.remove('text-cyan-200');
+                    messageUrlYt.classList.add('text-red-300');
                 }
-                else
-                {
-                    $(this).removeClass('focus:ring-indigo-500 focus:ring-emerald-400')
-                    $(this).addClass("focus:ring-rose-400")
 
-                    pElement.html('Invalid URL! Must be a direct link or IPv4 address.')
-                    pElement.removeClass('text-indigo-300 text-emerald-300')
-                    pElement.addClass('text-rose-300')
+            //plat kendaraan
+            } else if($(this).attr('id') == 'platKendaraan-regex'){
+                const messageplatKendaraan = document.getElementById('messageplatKendaraan');
+
+                if (platKendaraanRegex.test($(this).val())) {
+                    messageplatKendaraan.innerHTML = 'Plat valdi';
+                    messageplatKendaraan.classList.remove('text-red-300');
+                    messageplatKendaraan.classList.add('text-cyan-200');
+                } else {
+                    messageplatKendaraan.innerHTML = 'Plat tidak valdi';
+                    messageplatKendaraan.classList.remove('text-cyan-200');
+                    messageplatKendaraan.classList.add('text-red-300');
                 }
-            }
-            else if ($(this).attr('id') == "password-regex")
-            {
-                if (passwordRegex.test($(this).val()))
-                {
-                    $(this).removeClass('focus:ring-indigo-500 focus:ring-rose-400')
-                    $(this).addClass("focus:ring-emerald-400")
+                
+            //antrian
+            } else if($(this).attr('id') == 'noAntrian1-regex' || $(this).attr('id') == 'noAntrian2-regex' || $(this).attr('id') == 'noAntrian3-regex'){
+                const messageAntrian = document.getElementById('messageAntrian');
+                const inputAntrian1 = document.getElementById('noAntrian1-regex');
+                const inputAntrian2 = document.getElementById('noAntrian2-regex');
+                const inputAntrian3 = document.getElementById('noAntrian3-regex');
+                    
+                    if (inputAntrian1.value !== '') {
+                        if (nomorAntrian1Regex.test(inputAntrian1.value)) {
+                            messageAntrian.innerHTML = 'Valdi';
+                            inputAntrian2.classList.remove('hidden');
+                            inputAntrian2.classList.add('flex');
+                            messageAntrian.classList.remove('text-red-300');
+                            messageAntrian.classList.add('text-cyan-200');
+                            
+                            if (inputAntrian2.value !== '') {
+                                if (nomorAntrian23Regex.test(inputAntrian2.value)) {
+                                    messageAntrian.innerHTML = 'Valdi';
+                                    messageAntrian.classList.remove('text-red-300');
+                                    messageAntrian.classList.add('text-cyan-200');
+                                    inputAntrian3.classList.remove('hidden');
+                                    inputAntrian3.classList.add('flex');
+    
+                                    if (inputAntrian3.value !== '') {
+                                        if (nomorAntrian23Regex.test(inputAntrian3.value)) {
+                                            messageAntrian.innerHTML = 'Valdi';
+                                            messageAntrian.classList.remove('text-red-300');
+                                            messageAntrian.classList.add('text-cyan-200');
+                                        } else {
+                                            messageAntrian.innerHTML = 'Belum Valdi';
+                                            messageAntrian.classList.remove('text-cyan-200');
+                                            messageAntrian.classList.add('text-red-300');
+                                        }
+                                    }
+    
+                                } else {
+                                    messageAntrian.innerHTML = 'Belum Valdi';
+                                    messageAntrian.classList.remove('text-cyan-200');
+                                    messageAntrian.classList.add('text-red-300');
+                                    inputAntrian3.classList.remove('flex');
+                                    inputAntrian3.classList.add('hidden');
+                                }
+    
+                            } else {
+                                inputAntrian3.classList.remove('flex');
+                                inputAntrian3.classList.add('hidden');
+                            }
+    
+                        } else {
+                            messageAntrian.innerHTML = 'Belum Valdi';
+                            inputAntrian2.classList.remove('flex'); inputAntrian3.classList.remove('flex');
+                            inputAntrian2.classList.add('hidden'); inputAntrian3.classList.add('hidden');
+                            messageAntrian.classList.remove('text-cyan-200');
+                            messageAntrian.classList.add('text-red-300');
+                        }
+    
+                    } else {
+                        messageAntrian.innerHTML = '';
+                        inputAntrian2.classList.remove('flex'); inputAntrian3.classList.remove('flex');
+                        inputAntrian2.classList.add('hidden'); inputAntrian3.classList.add('hidden');
+                    }
+            
+            //warna
+            } else if($(this).attr('id') == 'kodeWarna-regex'){
+                const messageWarna = document.getElementById('messageWarna');
 
-                    pElement.html('Password is strong 💪')
-                    pElement.removeClass('text-indigo-300 text-rose-300')
-                    pElement.addClass('text-emerald-300')
+                if (warnaRegex.test($(this).val())) {
+                    messageWarna.innerHTML = 'Kode warna valdi';
+                    messageWarna.classList.remove('text-red-300');
+                    messageWarna.classList.add('text-cyan-200');
+                } else {
+                    messageWarna.innerHTML = 'Kode warna tidak valdi';
+                    messageWarna.classList.remove('text-cyan-200');
+                    messageWarna.classList.add('text-red-300');
                 }
-                else
-                {
-                    $(this).removeClass('focus:ring-indigo-500 focus:ring-emerald-400')
-                    $(this).addClass("focus:ring-rose-400")
+            
+            //uk ban mobil
+            } else if($(this).attr('id') == 'banMobil-regex'){
+                const messageUkBanMobil = document.getElementById('messageUkBanMobil');
 
-                    pElement.html('Password is not strong enough, try to add some special chars!')
-                    pElement.removeClass('text-indigo-300 text-emerald-300')
-                    pElement.addClass('text-rose-300')
-                }
-            }
-            else if ($(this).attr('id') == "ip-regex")
-            {
-                if (IPRegex.test($(this).val()))
-                {
-                    $(this).removeClass('focus:ring-indigo-500 focus:ring-rose-400')
-                    $(this).addClass("focus:ring-emerald-400")
-
-                    pElement.html('Valid IP adress')
-                    pElement.removeClass('text-indigo-300 text-rose-300')
-                    pElement.addClass('text-emerald-300')
-                }
-                else
-                {
-                    $(this).removeClass('focus:ring-indigo-500 focus:ring-emerald-400')
-                    $(this).addClass("focus:ring-rose-400")
-
-                    pElement.html('Invalid IP address, try 192.168.100.1:2')
-                    pElement.removeClass('text-indigo-300 text-emerald-300')
-                    pElement.addClass('text-rose-300')
-                }
-            }
-            else if ($(this).attr('id') == "uuid-regex")
-            {
-                if (UUIDRegex.test($(this).val()))
-                {
-                    $(this).removeClass('focus:ring-indigo-500 focus:ring-rose-400')
-                    $(this).addClass("focus:ring-emerald-400")
-
-                    pElement.html('Valid v4 UUID')
-                    pElement.removeClass('text-indigo-300 text-rose-300')
-                    pElement.addClass('text-emerald-300')
-                }
-                else
-                {
-                    $(this).removeClass('focus:ring-indigo-500 focus:ring-emerald-400')
-                    $(this).addClass("focus:ring-rose-400")
-
-                    pElement.html('Invalid v4 UUID! Must match (xxxxxxxx-xxxx-4xxx-Yxxx-xxxxxxxxxxxx).')
-                    pElement.removeClass('text-indigo-300 text-emerald-300')
-                    pElement.addClass('text-rose-300')
-                }
-            }
-            else if ($(this).attr('id') == "duplicate-regex")
-            {
-                const isMatch = $(this).val().match(duplicateRegex);
-
-                if (isMatch)
-                {
-                    $(this).removeClass('focus:ring-indigo-500 focus:ring-emerald-400')
-                    $(this).addClass("focus:ring-rose-400")
-
-                    pElement.html('Found ' + isMatch.length + (isMatch.length < 2 ? ' duplicate' : ' duplicates') + ' &#128530')
-                    pElement.removeClass('text-indigo-300 text-emerald-300')
-                    pElement.addClass('text-rose-300')
-                }
-                else
-                {
-                    $(this).removeClass('focus:ring-indigo-500 focus:ring-rose-400')
-                    $(this).addClass("focus:ring-emerald-400")
-
-                    pElement.html('There are no duplicates &#128512')
-                    pElement.removeClass('text-indigo-300 text-rose-300')
-                    pElement.addClass('text-emerald-300')
+                if (ukBanMobilRegex.test($(this).val())) {
+                    messageUkBanMobil.innerHTML = 'Kode ban valdi';
+                    messageUkBanMobil.classList.remove('text-red-300');
+                    messageUkBanMobil.classList.add('text-cyan-200');
+                } else {
+                    messageUkBanMobil.innerHTML = 'Kode ban tidak valdi';
+                    messageUkBanMobil.classList.remove('text-cyan-200');
+                    messageUkBanMobil.classList.add('text-red-300');
                 }
             }
-        })
-    })
-})
+        });
+    });
+});
